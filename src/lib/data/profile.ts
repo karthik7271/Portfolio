@@ -7,10 +7,10 @@ export const profile = {
   location: "Bangalore, India",
   email: "karthikr90637@gmail.com",
   resumeUrl: "/resume.pdf",
-  // TODO: replace with your real profile URLs
+  photo: "/karthik.jpg",
   social: {
-    github: "https://github.com/",
-    linkedin: "https://www.linkedin.com/",
+    github: "https://github.com/karthik7271",
+    linkedin: "https://www.linkedin.com/in/karthik-ragulan/",
   },
   about: [
     "I'm a Dual Degree student at IIT Kharagpur who likes building systems where several AI agents have to cooperate, argue, and check each other's work — then making sure that all stays fast and reliable at real data scale.",

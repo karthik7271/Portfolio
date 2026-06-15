@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -26,17 +27,33 @@ export function About() {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-4 lg:col-span-5">
-            {highlights.map((highlight, i) => (
-              <Reveal key={highlight.label} delay={i * 0.04}>
-                <div className="h-full rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-muted">
-                  <p className={cn("text-3xl font-black sm:text-4xl", accentText[highlight.accent])}>
-                    {highlight.value}
-                  </p>
-                  <p className="mt-2 text-sm text-muted">{highlight.label}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="space-y-6 lg:col-span-5">
+            <Reveal>
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-surface">
+                <Image
+                  src={profile.photo}
+                  alt={`Portrait of ${profile.name}`}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover object-top grayscale-[15%]"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-2 gap-4">
+              {highlights.map((highlight, i) => (
+                <Reveal key={highlight.label} delay={i * 0.04}>
+                  <div className="h-full rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-muted">
+                    <p className={cn("text-3xl font-black sm:text-4xl", accentText[highlight.accent])}>
+                      {highlight.value}
+                    </p>
+                    <p className="mt-2 text-sm text-muted">{highlight.label}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
