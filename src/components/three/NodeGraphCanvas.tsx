@@ -9,10 +9,10 @@ export default function NodeGraphCanvas() {
   return (
     <Canvas camera={{ position: [0, 0, 11], fov: 42 }} dpr={[1, 1.5]} gl={{ antialias: true }}>
       <color attach="background" args={["#06060c"]} />
-      <ambientLight intensity={0.6} />
+      <ambientLight intensity={0.7} />
       <pointLight position={[6, 6, 8]} intensity={80} color="#ffffff" />
-      <pointLight position={[-7, -5, -3]} intensity={50} color="#3ce6ff" />
-      <pointLight position={[0, 0, 6]} intensity={30} color="#ff3ec8" />
+      <pointLight position={[-7, -5, -3]} intensity={45} color="#8ab0d8" />
+      <pointLight position={[0, 0, 6]} intensity={25} color="#c090d0" />
 
       <Sparkles count={70} scale={13} size={1.5} speed={0.15} opacity={0.35} color="#ffffff" />
 

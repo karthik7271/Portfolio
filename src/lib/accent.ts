@@ -74,8 +74,8 @@ export const accentHoverGlow: Record<AccentColor, string> = {
 
 // Raw hex values for use in three.js materials (canvas can't read CSS variables).
 export const accentHex: Record<AccentColor, string> = {
-  lime: "#6b8cba",
-  magenta: "#b06090",
-  cyan: "#3d8fa8",
-  violet: "#8070b8",
+  lime: "#7aaad8",
+  magenta: "#c878a8",
+  cyan: "#50b8d0",
+  violet: "#a090d8",
 };

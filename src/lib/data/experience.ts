@@ -7,7 +7,7 @@ export interface BadgeInfo {
 
 export const badgeStyles: Record<BadgeType, { bg: string; text: string; ring: string }> = {
   current: { bg: "bg-lime", text: "text-background", ring: "ring-lime/40" },
-  gold: { bg: "bg-[#FFD24A]", text: "text-background", ring: "ring-[#FFD24A]/40" },
+  gold: { bg: "bg-[#FFD24A]", text: "text-[#1a1000]", ring: "ring-[#FFD24A]/40" },
   silver: { bg: "bg-cyan", text: "text-background", ring: "ring-cyan/40" },
   finalist: { bg: "bg-magenta", text: "text-background", ring: "ring-magenta/40" },
   build: { bg: "bg-violet", text: "text-background", ring: "ring-violet/40" },
