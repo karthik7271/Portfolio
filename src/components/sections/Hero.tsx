@@ -16,7 +16,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime/60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
               </span>
-              Open to SDE / AI-ML internships
+              Open to SDE / AI-ML opportunities
             </p>
           </Reveal>
 
@@ -29,8 +29,7 @@ export function Hero() {
 
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-lg text-muted sm:text-xl">
-              Dual Degree CS student at IIT Kharagpur — currently building the AI Sales Intelligence Agent at
-              Glance (InMobi).
+              Dual Degree CS student at IIT Kharagpur — shipped Apollo, Arrakis & DRAPE at Glance (InMobi), now building Flock and NightShift.
             </p>
           </Reveal>
 

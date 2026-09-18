@@ -7,12 +7,12 @@ export interface Highlight {
 }
 
 export const highlights: Highlight[] = [
-  { value: "30×", label: "Query speedup fixing Spanner index-defeating patterns", accent: "lime" },
-  { value: "14M", label: "Rows in the merchant dataset powering the InMobi sales agent", accent: "magenta" },
-  { value: "2", label: "National-level medals — Gold (Deloitte OpenSoft) & Silver (Inter IIT)", accent: "cyan" },
-  { value: "95%", label: "Test accuracy across 10+ crop diseases, fine-tuned InceptionV3", accent: "violet" },
-  { value: "1,000+", label: "Farmers using the multilingual crop-disease app", accent: "lime" },
-  { value: "34%", label: "Of Vantage conversions driven by LinkedIn — from 18% of spend", accent: "magenta" },
+  { value: "30×", label: "Latency cut on Apollo — 96s → 3s (p50) across 292 traced production runs", accent: "lime" },
+  { value: "27B", label: "Parameter model fit on a single 24 GB GPU via QLoRA in Arrakis", accent: "magenta" },
+  { value: "45+", label: "Structured catalogue attributes extracted per garment image with DRAPE", accent: "cyan" },
+  { value: "59", label: "Verified merchants grounded in Flock with zero invented claims", accent: "violet" },
+  { value: "2", label: "National-level medals — Gold (Deloitte OpenSoft) & Silver (Inter IIT 14.0)", accent: "lime" },
+  { value: "95%", label: "Test accuracy across 10+ crop diseases, fine-tuned InceptionV3", accent: "magenta" },
 ];
 
 export interface MedalHighlight {

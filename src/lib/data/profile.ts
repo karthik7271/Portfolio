@@ -2,7 +2,7 @@ export const profile = {
   name: "Karthik Ragulan",
   initials: "KR",
   title: "AI/ML Engineer",
-  tagline: "I build multi-agent systems, RAG pipelines, and the data infrastructure underneath them.",
+  tagline: "I build multi-agent systems, fine-tuned VLMs, and the infrastructure underneath them.",
   school: "Dual Degree, Indian Institute of Technology Kharagpur · Class of 2027",
   location: "Bangalore, India",
   email: "karthikr90637@gmail.com",
@@ -13,8 +13,8 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/karthik-ragulan/",
   },
   about: [
-    "I'm a Dual Degree student at IIT Kharagpur who likes building systems where several AI agents have to cooperate, argue, and check each other's work — then making sure that all stays fast and reliable at real data scale.",
-    "Right now I'm interning on the AI Sales Intelligence Agent team at Glance (InMobi), building a multi-agent system that orchestrates five specialized tools over a 14-million-row, 64GB Spanner merchant dataset.",
-    "Outside of work I compete: Gold at Deloitte OpenSoft 2025 for an AI employee-wellness platform, Silver at Inter IIT Tech Meet 14.0 for a causal-analysis RAG system, and a finalist spot at Smart India Hackathon 2024 with a crop-disease app used by 1,000+ farmers. Vantage — a B2B marketing-attribution SaaS — is my latest personal build.",
+    "I'm a Dual Degree student at IIT Kharagpur building systems where AI agents cooperate, check each other's work, and stay fast and reliable at real data scale.",
+    "At Glance (InMobi Group) I shipped three production systems: Apollo, a ReAct sales agent over 14M+ brands that cut query latency 30×; Arrakis, a no-code fine-tune console fitting 27B-param models on a single GPU; and DRAPE, a multi-LoRA VLM pipeline extracting 45+ catalogue attributes per garment image.",
+    "My latest personal projects are Flock — a shopping agent grounded in live catalogues across 59 verified merchants — and NightShift, an autonomous on-call agent that turns a GitHub bug label into a tested draft PR. I compete too: Silver at Inter IIT Tech Meet 14.0, Gold at Deloitte OpenSoft 2025, and a finalist spot at Smart India Hackathon 2024.",
   ],
 } as const;

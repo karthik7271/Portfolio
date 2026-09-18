@@ -49,21 +49,83 @@ export interface ExperienceEntry {
 export const experience: ExperienceEntry[] = [
   {
     slug: "glance-inmobi",
-    title: "AI Sales Intelligence Agent",
-    organization: "Glance · InMobi",
-    period: "May 2026 – Jul 2026",
-    badge: { type: "current", label: "Current" },
+    title: "SDE Intern — B2B Commerce Team",
+    organization: "Glance · InMobi Group",
+    period: "May 2026 – Aug 2026",
+    badge: { type: "build", label: "SDE Intern" },
     summary:
-      "A multi-agent system orchestrating five specialized tools over a 14M-row, 64GB Spanner merchant dataset — with RAG over contracts and transcripts, and an auditable propose-then-confirm write pipeline.",
+      "Shipped three production AI systems at Glance: Apollo (agentic sales analyst over 14M+ brands), Arrakis (no-code fine-tune console for 27B-param models on a single GPU), and DRAPE (VLM catalogue enrichment extracting 45+ attributes per garment image).",
     bullets: [
-      "Built a Multi-Agent system orchestrating 5 specialized tools over a 14M-row, 64GB Spanner merchant dataset",
-      "Designed an Account Memory Hub via interleaved Spanner tables linking deal stage and rep attribution",
-      "Implemented RAG on PDFs, contracts, and transcripts via embeddings and Vector Distance semantic search",
-      "Tagged chunks with graph-ready entities (brands, objections, competitors) for future knowledge-graph assembly",
-      "Enforced propose→confirm writes via schema-validated tools and an auditable LangGraph checkpointer",
-      "Implemented brand similarity scoring and fixed Spanner index-defeating patterns, achieving a 30× query speedup",
+      "Apollo — Built a ReAct agent over 7 governed tools answering plain-English sales queries on 14M+ brands in Cloud Spanner; cut median latency 96s → 3s (30×) by killing redundant reasoning and indexing hot paths to 0.24s seeks",
+      "Apollo — Made safe by construction: read-only SELECT-only queries, 100-row caps, 10-round loop bound, per-rep traces; verified over 292 traced production runs (p50 3s, p90 9s)",
+      "Arrakis — Shipped a no-code fine-tune console turning a raw CSV into a trained model on a single 24 GB NVIDIA L4, exposing 22 models; fit a 27B model with QLoRA (frozen 4-bit base + 1% adapter) across VLM, CNN and LLM modes",
+      "Arrakis — Split CPU control plane off on-demand GPU jobs (Cloud Run min-0, auto-deleted Cloud Batch VMs) for ~$0 idle; streamed logs, loss curves and GPU stats over SSE; 93 backend tests, ruff and mypy clean",
+      "DRAPE — Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to pull 45+ structured attributes from a single garment image; served all adapters off one AWQ-INT4 base via vLLM multi-LoRA, batching 5 prompts into one GPU forward pass",
+      "DRAPE — Kept non-apparel items out of the pipeline via FunctionGemma-270M and a 160-term allowlist; benchmarked head-to-head vs Gemini 2.5 Flash on a 3k held-out set (Top-1, Macro F1)",
     ],
-    tags: ["LangGraph", "Multi-Agent", "Cloud Spanner", "RAG", "Vector Search", "GCP"],
+    tags: ["Python", "FastAPI", "React", "ReAct", "QLoRA", "vLLM", "LoRA", "Qwen2.5-VL", "Cloud Spanner", "Cloud Run", "Cloud Batch", "Kubernetes", "GCP"],
+    hasCaseStudy: true,
+    caseStudy: {
+      tagline: "Three AI systems shipped in one internship — a sales agent, a fine-tune console, and a vision model pipeline.",
+      overview:
+        "At Glance (InMobi Group)'s B2B Commerce Team, I shipped three distinct production systems over a 12-week internship. Apollo is an agentic sales analyst answering natural-language queries over 14M+ brands in Cloud Spanner. Arrakis is a no-code fine-tuning console that turns a raw CSV into a trained model on a single 24 GB GPU. DRAPE is a VLM pipeline that extracts 45+ structured catalogue attributes from a single garment image.",
+      problem:
+        "The team had three separate bottlenecks: sales reps couldn't query a 14M-row Spanner dataset without SQL expertise; fine-tuning models required engineering intervention even for routine runs; and enriching a fashion catalogue with structured attributes required manual human review per item.",
+      approach: [
+        {
+          title: "Apollo — ReAct agent over Cloud Spanner",
+          body: "Built a ReAct agent with 7 governed tools that lets sales reps query 14M+ brands in plain English. Cut median latency from 96s to 3s (30×) by eliminating redundant model reasoning loops and indexing hot query paths to 0.24s seeks. Safety enforced structurally: read-only SELECT-only queries, 100-row caps, a 10-round loop bound, and per-rep audit traces across 292 traced production runs.",
+        },
+        {
+          title: "Arrakis — No-code fine-tune console",
+          body: "Shipped a FastAPI + React console that takes a CSV upload and produces a trained model on a single 24 GB NVIDIA L4 — exposing 22 models across VLM, CNN, and LLM modes. Fit a 27B-parameter model on one GPU via QLoRA (frozen 4-bit base + 1% trainable adapter). Split a CPU control plane from on-demand GPU jobs using Cloud Run (min-0) and auto-deleted Cloud Batch VMs for ~$0 idle cost. Streamed live logs, loss curves, and GPU stats over SSE with zero data egress.",
+        },
+        {
+          title: "DRAPE — Multi-LoRA VLM catalogue enrichment",
+          body: "Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to extract 45+ structured attributes (fabric, color, pattern, silhouette…) from a single garment image. Served all three adapters off one AWQ-INT4 base via vLLM multi-LoRA, batching 5 prompts into one GPU forward pass. Gated the pipeline with FunctionGemma-270M and a 160-term deterministic allowlist to reject non-apparel inputs. Benchmarked head-to-head against Gemini 2.5 Flash on a 3k held-out set measuring Top-1 and Macro F1.",
+        },
+      ],
+      results: [
+        "Apollo: 30× latency reduction (96s → 3s p50) across 292 traced production runs (p90 9s)",
+        "Arrakis: 27B-param model fit on a single 24 GB GPU via QLoRA; ~$0 idle cost with serverless GPU architecture; 93 tests, ruff + mypy clean",
+        "DRAPE: 45+ structured attributes extracted per garment from a single image; multi-LoRA serving with 5-prompt GPU batching",
+      ],
+      stack: ["Python", "FastAPI", "React", "ReAct Agent", "QLoRA", "Unsloth", "TRL", "vLLM", "LoRA", "AWQ-INT4", "Qwen2.5-VL-7B", "FunctionGemma-270M", "Cloud Spanner", "Cloud Run", "Cloud Batch", "Kubernetes", "GCP", "SSE"],
+      links: [],
+    },
+  },
+  {
+    slug: "flock",
+    title: "Flock — Multi-Merchant Shopping Agent",
+    organization: "Personal Project",
+    period: "Aug 2026",
+    badge: { type: "build", label: "Personal Build" },
+    summary:
+      "A shopping agent grounded in live UCP catalogues across 59 verified merchants — a Gemini coordinator plans, deterministic code enforces every hard constraint, with an editable mission board and multi-merchant bag persisted in Cloudflare D1.",
+    bullets: [
+      "Built a shopping agent grounded in live UCP catalogues across 59 verified merchants, with no invented claims",
+      "Split planning from enforcement: a Gemini coordinator plans, deterministic code enforces every hard constraint",
+      "Searched merchants concurrently while streaming evidence; a 10-minute discovery cache bounds catalogue walks",
+      "Persisted editable mission boards and a multi-merchant bag in Cloudflare D1 via Drizzle; 12 agent test suites",
+    ],
+    tags: ["TypeScript", "Gemini", "Cloudflare Workers", "Cloudflare D1", "Drizzle ORM"],
+    hasCaseStudy: false,
+  },
+  {
+    slug: "nightshift",
+    title: "NightShift — Autonomous On-Call Maintenance Agent",
+    organization: "Personal Project",
+    period: "Aug 2026",
+    badge: { type: "build", label: "Personal Build" },
+    summary:
+      "An event-driven agent that turns a labelled GitHub bug issue into a tested draft PR via Gemini 3 Flash — autonomy bounded behind a policy gate with repo allowlist, dual-label opt-in, 3-file cap, and zero merge authority.",
+    bullets: [
+      "Deployed an event-driven agent that turns a labelled GitHub bug issue into a tested draft PR via Gemini 3 Flash",
+      "Bounded autonomy behind a policy gate: repo allowlist, dual-label opt-in, 3-file cap, and zero merge authority",
+      "Capped planning context at 6 files / 18,000 chars and authenticated as a GitHub App with HMAC SHA-256 checks",
+      "Wired durable jobs via Firestore and Pub/Sub, feeding Check Run CI results to a live dashboard; 32 unit tests",
+    ],
+    tags: ["Python", "Cloud Run", "Vertex AI", "Firestore", "Pub/Sub", "Gemini", "GitHub App"],
     hasCaseStudy: false,
   },
   {

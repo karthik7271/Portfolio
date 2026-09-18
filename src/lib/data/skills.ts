@@ -10,27 +10,27 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Languages",
     accent: "lime",
-    items: ["Python", "SQL", "C++", "JavaScript"],
+    items: ["Python", "TypeScript", "JavaScript", "SQL", "Bash"],
   },
   {
-    title: "AI / ML Frameworks",
+    title: "AI / ML",
     accent: "magenta",
-    items: ["PyTorch", "TensorFlow", "Scikit-learn", "LangChain", "LangGraph", "Google ADK", "FastAPI", "Pandas"],
+    items: ["PyTorch", "HuggingFace Transformers", "Unsloth", "TRL", "vLLM", "LoRA & QLoRA Fine-Tuning", "LangGraph", "RAG", "ReAct & Multi-Agent Systems", "Vertex AI (Gemini)", "OpenAI API"],
   },
   {
-    title: "AI Skills",
+    title: "Frameworks",
     accent: "cyan",
-    items: ["LLM Fine-tuning", "RAG Systems", "Multi-Agent Orchestration", "Prompt Engineering", "MLOps", "Graphs"],
+    items: ["FastAPI", "Next.js", "React", "React Native (Expo)", "Flask", "Drizzle ORM"],
   },
   {
-    title: "Cloud & Infra",
+    title: "Data Stores",
     accent: "violet",
-    items: ["GCP", "Cloud Spanner", "Vertex AI", "GKE", "Cloud Run", "BigQuery", "Docker", "Pub/Sub", "MongoDB Atlas"],
+    items: ["PostgreSQL", "MongoDB", "Cloud Spanner", "Firestore", "Cloudflare D1", "Qdrant", "ChromaDB", "FAISS", "Neo4j"],
   },
   {
-    title: "Tools",
+    title: "Cloud & DevOps",
     accent: "lime",
-    items: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Google Colab", "MySQL", "Notion", "PyCharm"],
+    items: ["GCP (Cloud Run · Cloud Batch · Pub/Sub · Vertex AI · GKE · Secret Manager)", "Cloudflare Workers", "Docker", "Kubernetes", "GitHub Actions", "Modal", "Nginx"],
   },
 ];
 
