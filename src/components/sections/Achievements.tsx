@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function Achievements() {
   return (
-    <section id="wins" className="scroll-mt-24 py-24 sm:py-32">
+    <section id="wins" className="scroll-mt-24 py-10 sm:py-12">
       <Container>
         <SectionHeading
           eyebrow="03 — Recognition"

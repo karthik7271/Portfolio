@@ -14,7 +14,7 @@ const directLinks = [
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 py-24 sm:py-32">
+    <section id="contact" className="scroll-mt-24 pt-10 pb-20 sm:pt-12 sm:pb-24">
       <Container>
         <SectionHeading
           eyebrow="05 — Contact"

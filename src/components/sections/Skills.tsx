@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 py-24 sm:py-32">
+    <section id="skills" className="scroll-mt-24 pt-10 pb-20 sm:pt-12 sm:pb-24">
       <Container>
         <SectionHeading
           eyebrow="04 — Toolkit"
