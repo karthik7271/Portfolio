@@ -244,23 +244,6 @@ export const experience: ExperienceEntry[] = [
       links: [],
     },
   },
-  {
-    slug: "crop-disease-ai",
-    title: "AI-Driven Crop Disease Prediction System",
-    organization: "Smart India Hackathon 2024",
-    period: "Aug 2024 – Sep 2024",
-    badge: { type: "finalist", label: "Finalist" },
-    summary:
-      "A fine-tuned InceptionV3 model reaching 95% accuracy across 10+ crop diseases, shipped as a multilingual React Native app used by 1,000+ farmers with live weather-based alerts.",
-    bullets: [
-      "Fine-tuned InceptionV3 CNN on 25K+ crop images, achieving 95% test accuracy across 10+ disease categories",
-      "Built a cross-platform React Native mobile app used by 1,000+ farmers, offering multilingual diagnosis in 11 languages",
-      "Deployed backend with FastAPI and live TensorFlow inference, delivering multilingual output via TTS API",
-      "Added a real-time weather alert system, reducing crop failure risk by 30%+ through geo-targeted prevention guidance",
-    ],
-    tags: ["TensorFlow", "InceptionV3", "FastAPI", "React Native", "Computer Vision", "TTS"],
-    hasCaseStudy: false,
-  },
 ];
 
 export const caseStudyEntries = experience.filter((e) => e.hasCaseStudy);

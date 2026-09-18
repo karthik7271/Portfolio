@@ -85,15 +85,6 @@ export const graphNodes: GraphNode[] = [
     size: 0.5,
     target: "#deloconnect",
   },
-  {
-    id: "crop-disease-ai",
-    label: "Crop Disease AI",
-    type: "project",
-    accent: "violet",
-    position: [0.4, -3.1, -0.3],
-    size: 0.46,
-    target: "#crop-disease-ai",
-  },
 
   // --- Skills / Tech ---
   {
@@ -217,9 +208,6 @@ export const graphEdges: GraphEdge[] = [
   { source: "deloconnect", target: "multi-agent" },
   { source: "deloconnect", target: "fastapi" },
 
-  { source: "crop-disease-ai", target: "fastapi" },
-  { source: "crop-disease-ai", target: "pytorch" },
-  { source: "crop-disease-ai", target: "react-native" },
 ];
 
 export function getGraphNode(id: string) {
