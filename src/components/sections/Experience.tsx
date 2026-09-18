@@ -11,7 +11,7 @@ export function Experience() {
           eyebrow="02 — Work"
           title="Selected Work"
           accent="magenta"
-          description="Internships, hackathon wins, and personal builds — five projects, three with full case studies."
+          description="Three production systems built at Glance (InMobi), two personal agents, and two national-level hackathon wins — two with full case studies."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">

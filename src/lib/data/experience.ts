@@ -48,51 +48,55 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    slug: "glance-inmobi",
-    title: "SDE Intern — B2B Commerce Team",
-    organization: "Glance · InMobi Group",
+    slug: "apollo",
+    title: "Apollo — Agentic Sales Analyst",
+    organization: "Glance · InMobi Group · SDE Intern",
     period: "May 2026 – Aug 2026",
     badge: { type: "build", label: "SDE Intern" },
     summary:
-      "Shipped three production AI systems at Glance: Apollo (agentic sales analyst over 14M+ brands), Arrakis (no-code fine-tune console for 27B-param models on a single GPU), and DRAPE (VLM catalogue enrichment extracting 45+ attributes per garment image).",
+      "A ReAct agent over 7 governed tools answering plain-English sales queries on 14M+ brands in Cloud Spanner. Cut median latency 96s → 3s (30×) and verified across 292 traced production runs.",
     bullets: [
-      "Apollo — Built a ReAct agent over 7 governed tools answering plain-English sales queries on 14M+ brands in Cloud Spanner; cut median latency 96s → 3s (30×) by killing redundant reasoning and indexing hot paths to 0.24s seeks",
-      "Apollo — Made safe by construction: read-only SELECT-only queries, 100-row caps, 10-round loop bound, per-rep traces; verified over 292 traced production runs (p50 3s, p90 9s)",
-      "Arrakis — Shipped a no-code fine-tune console turning a raw CSV into a trained model on a single 24 GB NVIDIA L4, exposing 22 models; fit a 27B model with QLoRA (frozen 4-bit base + 1% adapter) across VLM, CNN and LLM modes",
-      "Arrakis — Split CPU control plane off on-demand GPU jobs (Cloud Run min-0, auto-deleted Cloud Batch VMs) for ~$0 idle; streamed logs, loss curves and GPU stats over SSE; 93 backend tests, ruff and mypy clean",
-      "DRAPE — Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to pull 45+ structured attributes from a single garment image; served all adapters off one AWQ-INT4 base via vLLM multi-LoRA, batching 5 prompts into one GPU forward pass",
-      "DRAPE — Kept non-apparel items out of the pipeline via FunctionGemma-270M and a 160-term allowlist; benchmarked head-to-head vs Gemini 2.5 Flash on a 3k held-out set (Top-1, Macro F1)",
+      "Built a ReAct agent over 7 governed tools answering plain-English sales queries on 14M+ brands in Cloud Spanner",
+      "Cut median latency 96s → 3s (30×) by eliminating redundant model reasoning and indexing hot paths into 0.24s seeks",
+      "Made safe by construction: read-only SELECT-only queries, 100-row caps, a 10-round loop bound, per-rep audit traces",
+      "Verified over 292 traced production runs (p50 3s, p90 9s); added an agentic-commerce readiness score for reps",
     ],
-    tags: ["Python", "FastAPI", "React", "ReAct", "QLoRA", "vLLM", "LoRA", "Qwen2.5-VL", "Cloud Spanner", "Cloud Run", "Cloud Batch", "Kubernetes", "GCP"],
-    hasCaseStudy: true,
-    caseStudy: {
-      tagline: "Three AI systems shipped in one internship — a sales agent, a fine-tune console, and a vision model pipeline.",
-      overview:
-        "At Glance (InMobi Group)'s B2B Commerce Team, I shipped three distinct production systems over a 12-week internship. Apollo is an agentic sales analyst answering natural-language queries over 14M+ brands in Cloud Spanner. Arrakis is a no-code fine-tuning console that turns a raw CSV into a trained model on a single 24 GB GPU. DRAPE is a VLM pipeline that extracts 45+ structured catalogue attributes from a single garment image.",
-      problem:
-        "The team had three separate bottlenecks: sales reps couldn't query a 14M-row Spanner dataset without SQL expertise; fine-tuning models required engineering intervention even for routine runs; and enriching a fashion catalogue with structured attributes required manual human review per item.",
-      approach: [
-        {
-          title: "Apollo — ReAct agent over Cloud Spanner",
-          body: "Built a ReAct agent with 7 governed tools that lets sales reps query 14M+ brands in plain English. Cut median latency from 96s to 3s (30×) by eliminating redundant model reasoning loops and indexing hot query paths to 0.24s seeks. Safety enforced structurally: read-only SELECT-only queries, 100-row caps, a 10-round loop bound, and per-rep audit traces across 292 traced production runs.",
-        },
-        {
-          title: "Arrakis — No-code fine-tune console",
-          body: "Shipped a FastAPI + React console that takes a CSV upload and produces a trained model on a single 24 GB NVIDIA L4 — exposing 22 models across VLM, CNN, and LLM modes. Fit a 27B-parameter model on one GPU via QLoRA (frozen 4-bit base + 1% trainable adapter). Split a CPU control plane from on-demand GPU jobs using Cloud Run (min-0) and auto-deleted Cloud Batch VMs for ~$0 idle cost. Streamed live logs, loss curves, and GPU stats over SSE with zero data egress.",
-        },
-        {
-          title: "DRAPE — Multi-LoRA VLM catalogue enrichment",
-          body: "Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to extract 45+ structured attributes (fabric, color, pattern, silhouette…) from a single garment image. Served all three adapters off one AWQ-INT4 base via vLLM multi-LoRA, batching 5 prompts into one GPU forward pass. Gated the pipeline with FunctionGemma-270M and a 160-term deterministic allowlist to reject non-apparel inputs. Benchmarked head-to-head against Gemini 2.5 Flash on a 3k held-out set measuring Top-1 and Macro F1.",
-        },
-      ],
-      results: [
-        "Apollo: 30× latency reduction (96s → 3s p50) across 292 traced production runs (p90 9s)",
-        "Arrakis: 27B-param model fit on a single 24 GB GPU via QLoRA; ~$0 idle cost with serverless GPU architecture; 93 tests, ruff + mypy clean",
-        "DRAPE: 45+ structured attributes extracted per garment from a single image; multi-LoRA serving with 5-prompt GPU batching",
-      ],
-      stack: ["Python", "FastAPI", "React", "ReAct Agent", "QLoRA", "Unsloth", "TRL", "vLLM", "LoRA", "AWQ-INT4", "Qwen2.5-VL-7B", "FunctionGemma-270M", "Cloud Spanner", "Cloud Run", "Cloud Batch", "Kubernetes", "GCP", "SSE"],
-      links: [],
-    },
+    tags: ["Python", "ReAct", "Cloud Spanner", "GCP", "Multi-Agent", "LangGraph"],
+    hasCaseStudy: false,
+  },
+  {
+    slug: "arrakis",
+    title: "Arrakis — Self-Serve Fine-Tune Console",
+    organization: "Glance · InMobi Group · SDE Intern",
+    period: "May 2026 – Aug 2026",
+    badge: { type: "build", label: "SDE Intern" },
+    summary:
+      "A no-code console turning a raw CSV into a trained model on a single 24 GB NVIDIA L4, exposing 22 models. Fit a 27B model on one GPU with QLoRA across VLM, CNN and LLM modes — at ~$0 idle cost.",
+    bullets: [
+      "Shipped a no-code console turning a raw CSV into a trained model on a single 24 GB NVIDIA L4, exposing 22 models",
+      "Fit a 27B-param model on one 24 GB GPU with QLoRA (frozen 4-bit base + 1% adapter) across VLM, CNN and LLM modes",
+      "Split CPU control plane off on-demand GPU jobs (Cloud Run min-0, auto-deleted Cloud Batch VMs) for ~$0 idle cost",
+      "Streamed logs, loss curves and GPU stats over SSE with zero data egress; 93 backend tests, ruff and mypy clean",
+    ],
+    tags: ["FastAPI", "React", "QLoRA", "Unsloth", "TRL", "Cloud Run", "Cloud Batch", "GCP"],
+    hasCaseStudy: false,
+  },
+  {
+    slug: "drape",
+    title: "DRAPE — VLM Catalogue Enrichment",
+    organization: "Glance · InMobi Group · SDE Intern",
+    period: "May 2026 – Aug 2026",
+    badge: { type: "build", label: "SDE Intern" },
+    summary:
+      "Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to extract 45+ structured attributes from a single garment image. All adapters served off one AWQ-INT4 base via vLLM multi-LoRA with 5-prompt GPU batching.",
+    bullets: [
+      "Fine-tuned three LoRA adapters on Qwen2.5-VL-7B to pull 45+ structured attributes from a single garment image",
+      "Served all adapters off one AWQ-INT4 base via vLLM multi-LoRA, batching 5 prompts into one GPU forward pass",
+      "Kept non-apparel items out of the pipeline via FunctionGemma-270M and a deterministic 160-term allowlist",
+      "Benchmarked head-to-head vs Gemini 2.5 Flash on a 33-class fabric task over a 3k held-out set (Top-1, Macro F1)",
+    ],
+    tags: ["Qwen2.5-VL-7B", "vLLM", "LoRA", "AWQ-INT4", "QLoRA", "Kubernetes", "GCP"],
+    hasCaseStudy: false,
   },
   {
     slug: "flock",
@@ -101,7 +105,7 @@ export const experience: ExperienceEntry[] = [
     period: "Aug 2026",
     badge: { type: "build", label: "Personal Build" },
     summary:
-      "A shopping agent grounded in live UCP catalogues across 59 verified merchants — a Gemini coordinator plans, deterministic code enforces every hard constraint, with an editable mission board and multi-merchant bag persisted in Cloudflare D1.",
+      "A shopping agent grounded in live UCP catalogues across 59 verified merchants — a Gemini coordinator plans, deterministic code enforces every hard constraint, with mission boards and multi-merchant bag persisted in Cloudflare D1.",
     bullets: [
       "Built a shopping agent grounded in live UCP catalogues across 59 verified merchants, with no invented claims",
       "Split planning from enforcement: a Gemini coordinator plans, deterministic code enforces every hard constraint",
@@ -113,12 +117,12 @@ export const experience: ExperienceEntry[] = [
   },
   {
     slug: "nightshift",
-    title: "NightShift — Autonomous On-Call Maintenance Agent",
+    title: "NightShift — Autonomous On-Call Agent",
     organization: "Personal Project",
     period: "Aug 2026",
     badge: { type: "build", label: "Personal Build" },
     summary:
-      "An event-driven agent that turns a labelled GitHub bug issue into a tested draft PR via Gemini 3 Flash — autonomy bounded behind a policy gate with repo allowlist, dual-label opt-in, 3-file cap, and zero merge authority.",
+      "An event-driven agent that turns a labelled GitHub bug issue into a tested draft PR via Gemini 3 Flash. Autonomy is bounded behind a policy gate — repo allowlist, dual-label opt-in, 3-file cap, zero merge authority.",
     bullets: [
       "Deployed an event-driven agent that turns a labelled GitHub bug issue into a tested draft PR via Gemini 3 Flash",
       "Bounded autonomy behind a policy gate: repo allowlist, dual-label opt-in, 3-file cap, and zero merge authority",
@@ -181,16 +185,14 @@ export const experience: ExperienceEntry[] = [
         "5-microservice architecture validated horizontal scaling under Docker Compose",
       ],
       stack: ["LangGraph", "FastAPI", "ColBERT", "Cohere", "Voyage AI", "Zep Cloud (GraphRAG)", "Presidio", "Docker Compose"],
-      links: [
-        { label: "View Code", href: "https://github.com/" }, // TODO: replace with real repo URL
-      ],
+      links: [],
     },
   },
   {
     slug: "deloconnect",
     title: "DeloConnect — AI Employee Wellness Platform",
     organization: "Deloitte OpenSoft 2025",
-    period: "Feb 2025 – May 2025",
+    period: "Feb 2025 – Apr 2025",
     badge: { type: "gold", label: "Gold Medal" },
     summary:
       "A 5-agent LangGraph workflow that turns activity, leave, performance, and sentiment signals into structured HR reports — plus a counseling chatbot that knows when to escalate.",
@@ -239,9 +241,7 @@ export const experience: ExperienceEntry[] = [
         "Real-time WebSocket counseling chat with automatic HR escalation and strict RBAC",
       ],
       stack: ["LangGraph", "Agno", "OpenAI", "Gemini", "FastAPI", "MongoDB Atlas", "WebSockets", "JWT", "Isolation Forest"],
-      links: [
-        { label: "View Code", href: "https://github.com/" }, // TODO: replace with real repo URL
-      ],
+      links: [],
     },
   },
   {
@@ -260,58 +260,6 @@ export const experience: ExperienceEntry[] = [
     ],
     tags: ["TensorFlow", "InceptionV3", "FastAPI", "React Native", "Computer Vision", "TTS"],
     hasCaseStudy: false,
-  },
-  {
-    slug: "vantage",
-    title: "Vantage — B2B Marketing Intelligence Platform",
-    organization: "Personal Project",
-    period: "Jun 2026",
-    badge: { type: "build", label: "Personal Build" },
-    summary:
-      "A Next.js SaaS that models 500+ multi-touch customer journeys, runs a Shapley-value attribution engine, and flags per-channel CPC anomalies against rolling baselines — deployed on Vercel.",
-    bullets: [
-      "Architected a Next.js SaaS on Aurora PostgreSQL, modeling 500+ customer journeys across five ad channels",
-      "Built a Shapley-value attribution engine in Python; LinkedIn drove 34% of conversions on 18% of spend",
-      "Wrote PostgreSQL window-function queries detecting per-channel CPC anomalies against 7-day rolling baselines",
-      "Deployed Next.js on Vercel Edge Functions backed by AWS RDS, authenticated via NextAuth.js",
-    ],
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Python", "NextAuth.js", "Vercel", "AWS RDS"],
-    hasCaseStudy: true,
-    caseStudy: {
-      tagline: "Which marketing channel is actually working — and which dollars are wasted?",
-      overview:
-        "Vantage is a B2B marketing-intelligence SaaS built on Next.js and Aurora PostgreSQL. It models multi-touch customer journeys across five ad channels, runs a Shapley-value attribution engine to fairly credit each touchpoint, and continuously watches for cost anomalies — deployed end-to-end on Vercel.",
-      problem:
-        "Most marketing teams still rely on last-click attribution, which systematically overstates whichever channel happens to close the deal — usually paid search or direct — while undervaluing the channels that build the pipeline in the first place, like LinkedIn or content. Without fair, multi-touch attribution, budget keeps flowing to the wrong places.",
-      approach: [
-        {
-          title: "Multi-touch journey modeling",
-          body: "Modeled 500+ customer journeys spanning five ad channels in Aurora PostgreSQL, capturing every touchpoint from first contact to closed deal — not just the last click.",
-        },
-        {
-          title: "Shapley-value attribution engine",
-          body: "Built a Python attribution engine based on Shapley values from cooperative game theory — fairly distributing conversion credit across every touchpoint in a journey. The headline finding: LinkedIn drove 34% of conversions from just 18% of total spend.",
-        },
-        {
-          title: "Anomaly detection via window functions",
-          body: "Wrote PostgreSQL window-function queries that compute per-channel CPC against a 7-day rolling baseline, automatically flagging cost spikes before they quietly drain budget.",
-        },
-        {
-          title: "Production deployment on Vercel",
-          body: "Shipped the full stack on Vercel — Next.js frontend and API routes on Vercel Functions, Aurora/AWS RDS for storage, and NextAuth.js for authentication — so the dashboard is live, not just a notebook.",
-        },
-      ],
-      results: [
-        "Surfaced that LinkedIn drove 34% of conversions from just 18% of spend — a concrete reallocation signal",
-        "Automated rolling-baseline anomaly detection catches per-channel CPC spikes within a 7-day window",
-        "End-to-end production deployment: Next.js + Vercel + Aurora PostgreSQL + NextAuth.js",
-      ],
-      stack: ["Next.js", "TypeScript", "Aurora PostgreSQL", "Python", "NextAuth.js", "Vercel", "AWS RDS"],
-      links: [
-        { label: "Live Demo", href: "https://example.com" }, // TODO: replace with real deployment URL
-        { label: "View Code", href: "https://github.com/" }, // TODO: replace with real repo URL
-      ],
-    },
   },
 ];
 
