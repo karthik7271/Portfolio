@@ -45,7 +45,7 @@ export function Navbar() {
         <a
           href={profile.resumeUrl}
           download
-          className="hidden items-center gap-2 rounded-full border-2 border-lime px-4 py-2 font-mono text-xs font-bold tracking-widest text-lime uppercase transition hover:bg-lime hover:text-background hover:glow-lime md:inline-flex"
+          className="hidden items-center gap-2 rounded-full border-2 border-lime px-4 py-2 font-mono text-xs font-bold tracking-widest text-lime uppercase transition hover:bg-lime hover:text-background md:inline-flex"
         >
           <ArrowDownToLine size={14} /> Resume
         </a>
