@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { accentHoverBorder, accentHoverText, accentText } from "@/lib/accent";
+import { accentText } from "@/lib/accent";
 import { education, skillGroups } from "@/lib/data/skills";
 import { cn } from "@/lib/utils";
 
@@ -16,41 +16,31 @@ export function Skills() {
           description="The languages, frameworks, and infrastructure I reach for most."
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="divide-y divide-border">
           {skillGroups.map((group, i) => (
-            <Reveal key={group.title} delay={i * 0.05}>
-              <div className="h-full rounded-2xl border border-border bg-surface p-6">
-                <h3 className={cn("font-mono text-xs font-bold tracking-[0.25em] uppercase", accentText[group.accent])}>
+            <Reveal key={group.title} delay={i * 0.04}>
+              <div className="grid gap-3 py-5 sm:grid-cols-[180px_1fr] sm:items-baseline">
+                <h3 className={cn("font-mono text-xs font-bold tracking-[0.2em] uppercase", accentText[group.accent])}>
                   {group.title}
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className={cn(
-                        "rounded-full border border-border bg-surface-2 px-3 py-1.5 text-sm text-foreground/80 transition-colors",
-                        accentHoverBorder[group.accent],
-                        accentHoverText[group.accent],
-                      )}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-sm leading-relaxed text-muted">
+                  {group.items.join(" · ")}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={0.1} className="mt-16">
-          <h3 className="font-mono text-xs font-bold tracking-[0.25em] text-muted uppercase">Education</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <Reveal delay={0.1} className="mt-16 border-t border-border pt-10">
+          <h3 className="font-mono text-xs font-bold tracking-[0.2em] text-muted uppercase">Education</h3>
+          <div className="mt-6 divide-y divide-border">
             {education.map((ed) => (
-              <div key={ed.degree} className="rounded-2xl border border-border bg-surface p-5">
+              <div key={ed.degree} className="grid gap-1 py-5 sm:grid-cols-[180px_1fr] sm:items-baseline">
                 <p className="font-mono text-xs text-lime">{ed.year}</p>
-                <p className="mt-2 font-bold">{ed.degree}</p>
-                <p className="mt-1 text-sm text-muted">{ed.institute}</p>
-                <p className="mt-1 text-sm text-muted">{ed.detail}</p>
+                <div>
+                  <p className="font-semibold text-foreground">{ed.degree}</p>
+                  <p className="mt-0.5 text-sm text-muted">{ed.institute} · {ed.detail}</p>
+                </div>
               </div>
             ))}
           </div>
